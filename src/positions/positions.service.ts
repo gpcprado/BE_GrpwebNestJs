@@ -36,10 +36,10 @@ export class PositionsService {
     };
   }
 
-async findById(id: number) {
+async findById(userId: number) {
     const [rows] = await this.pool().execute<RowDataPacket[]>(
-      'SELECT id, position_code, position_name FROM users WHERE id = ?',
-      [id],
+      'SELECT id, position_code, position_name FROM positions WHERE id = ?',
+      [userId],
     );
     return rows[0];
   }

@@ -21,6 +21,12 @@ export class PositionsController {
      const positions = await this.positionsService.findAll();
      return positions;
     }
+    
+    @UseGuards(JwtAuthGuard)
+   @Get(':id')
+  async getOne(@Param('id') id: string) {
+    return this.positionsService.findById(+id);
+  }
 
   @UseGuards(JwtAuthGuard)
   @Post()

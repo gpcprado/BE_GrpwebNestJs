@@ -23,6 +23,12 @@ export class MessagesController {
      return messages;
     }
 
+    @UseGuards(JwtAuthGuard)
+   @Get(':id')
+  async getOne(@Param('id') id: string) {
+    return this.messagesService.findById(+id);
+  }
+
   @UseGuards(JwtAuthGuard)
   @Post()
     async create(

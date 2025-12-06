@@ -59,10 +59,10 @@ export class MessagesService {
 
   // NOTE: This function's SQL selects from 'users' but the service is 'messages'. 
   // I kept the existing logic but you should verify this is what you intended.
-  async findById(id: number) {
+  async findById(userId: number) {
     const [rows] = await this.pool().execute<RowDataPacket[]>(
-      'SELECT id, message_code, message_content FROM users WHERE id = ?', 
-      [id],
+      'SELECT id, message_code, message_content FROM messages WHERE id = ?', 
+      [userId],
     );
     return rows[0];
   }
