@@ -64,7 +64,7 @@ export class ApplicationService {
 
   async findById(userId: number) {
     const [rows] = await this.pool().execute<RowDataPacket[]>(
-      'SELECT id, applicant_name, applicant_email, applicant_phone, applicant_address, application_date, job_positions, position_applied_for, status FROM application WHERE id = ?', 
+      'SELECT id, application_id, applicant_name, applicant_email, applicant_phone, applicant_address, application_date, job_positions, position_applied_for, status FROM application WHERE id = ?', 
       [userId],
     );
     return rows[0];
