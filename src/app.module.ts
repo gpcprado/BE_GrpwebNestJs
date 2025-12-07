@@ -6,10 +6,12 @@ import { PositionsModule} from './positions/positions.module';
 import {MessagesModule} from './messages/messages.module';
 import {TasksModule} from './tasks/tasks.module';
 import {ConcernModule} from './concern/concern.module';
+import {ApplicationModule} from './application/application.module';
 
 @Module({
   imports: [DatabaseModule, UsersModule, 
     AuthModule, PositionsModule, 
-    MessagesModule, TasksModule, ConcernModule],
+    MessagesModule, TasksModule, 
+    ConcernModule, ApplicationModule],
 })
 export class AppModule {}
