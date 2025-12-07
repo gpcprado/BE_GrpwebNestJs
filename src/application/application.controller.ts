@@ -35,10 +35,10 @@ export class ApplicationController {
     @Body() Body: any
     ) {
       
-      const { applicant_name, applicant_email, applicant_phone, applicant_address} = Body;
+      const { applicant_name, applicant_email, applicant_phone, applicant_address, job_positions, position_applied_for} = Body;
       const userId = (req.user as any)?.id;
       
-      return this.applicationService.createApplication(applicant_name, applicant_email, applicant_phone, applicant_address, userId);
+      return this.applicationService.createApplication(applicant_name, applicant_email, applicant_phone, applicant_address, job_positions, position_applied_for, userId);
     }
     
   @Put(':id')
