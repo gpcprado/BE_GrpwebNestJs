@@ -70,18 +70,18 @@ export class ApplicationService {
     return rows[0];
   }
 
-  async updateApplication(application_id: number, data: { applicant_name?: string, applicant_email?: string, applicant_phone?: string | null, applicant_address?: string }) { 
-    const { applicant_name, applicant_email, applicant_phone, applicant_address } = data; 
+    async updateApplication(application_id: number, data: { applicant_name?: string, applicant_email?: string, applicant_phone?: string | null, applicant_address?: string, status?: null}) { 
+    const { applicant_name, applicant_email, applicant_phone, applicant_address, status } = data; 
 
     const [result]: any = await this.pool().execute(
-      'UPDATE application SET applicant_name = ?, applicant_email = ?, applicant_phone = ?, applicant_address = ? WHERE application_id = ?',
-      [applicant_name, applicant_email, applicant_phone, applicant_address, application_id] 
+      'UPDATE application SET applicant_name = ?, applicant_email = ?, applicant_phone = ?, applicant_address = ?, status = ?  WHERE application_id = ?',
+      [applicant_name, applicant_email, applicant_phone, applicant_address, status, application_id] 
     );
 
     if (result.affectedRows === 0) {
       throw new NotFoundException(`Application with ID ${application_id} not found`); 
     }
 
-    return { application_id, applicant_name, applicant_email, applicant_phone, applicant_address } as Application; 
+    return { application_id, applicant_name, applicant_email, applicant_phone, applicant_address, status } as Application; 
   }
 }
