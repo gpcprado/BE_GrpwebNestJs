@@ -7,7 +7,7 @@ import 'reflect-metadata';
 async function bootstrap() {
   dotenv.config();
   const app = await NestFactory.create(AppModule);
-  const port = process.env.PORT || 3000;
+  const port = process.env.PORT || 3001;
   app.enableCors({
     origin: [
       "http://localhost:3000",

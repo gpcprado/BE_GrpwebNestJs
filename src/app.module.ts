@@ -7,11 +7,13 @@ import {MessagesModule} from './messages/messages.module';
 import {TasksModule} from './tasks/tasks.module';
 import {ConcernModule} from './concern/concern.module';
 import {ApplicationModule} from './application/application.module';
+import { UserProfileModule } from './userprofile/userprofile.module';
 
 @Module({
   imports: [DatabaseModule, UsersModule, 
     AuthModule, PositionsModule, 
     MessagesModule, TasksModule, 
-    ConcernModule, ApplicationModule],
+    ConcernModule, ApplicationModule,
+    UserProfileModule],
 })
 export class AppModule {}
